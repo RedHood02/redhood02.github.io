@@ -5,15 +5,6 @@ body {
     line-height: 1.6;
 }
 
-/* Cabecera con gradiente */
-header {
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-    color: white;
-    padding: 2rem 0;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
 /* Pie de página */
 footer {
     background-color: #343a40;
