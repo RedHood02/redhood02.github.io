@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Contenido principal -->
+    <main class="container">
+        <!-- Sección de filtros -->
+        <section class="mb-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Filtrar Usuarios</h2>
+                    <div class="input-group mb-3">
+                        <input type="text" id="filterInput" class="form-control"
+                            placeholder="Buscar por nombre, email o ciudad...">
+                        <button class="btn btn-primary" type="button" id="filterButton">Filtrar</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h2>Información</h2>
+                    <p>Esta aplicación consume datos de la API <a href="https://jsonplaceholder.typicode.com/"
+                            target="_blank">JSONPlaceholder.</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de resultados -->
+        <section>
+            <h2>Usuarios</h2>
+            <div id="loadingMessage" class="loading">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Cargando...</span>
+                </div>
+                <p class="mt-2">Cargando datos...</p>
+            </div>
+            <div id="errorMessage" class="error-message" style="display: none;">
+                <h4>Error al cargar los datos</h4>
+                <p>No se pudieron cargar los datos de la API. Por favor, intente más tarde.</p>
+            </div>
+            <div id="usersContainer" class="row">
+                <!-- Los usuarios se cargarán aquí dinámicamente -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-md-end">
+                    <p>Desarrollado con HTML, CSS, JavaScript y Bootstrap</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script personalizado -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
