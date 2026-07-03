@@ -1,75 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evaluación</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Estilos personalizados -->
-    <link rel="stylesheet" href="Assets/css/style.css">
+    <title>🎲 Portal de Comunidad - Rol de Mesa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <!-- Contenido principal -->
-    <main class="container">
-        <!-- Sección de filtros -->
-        <section class="mb-4">
-            <div class="row">
-                <div class="col-md-6">
-                    <h2>Filtrar Usuarios</h2>
-                    <div class="input-group mb-3">
-                        <input type="text" id="filterInput" class="form-control"
-                            placeholder="Buscar por nombre, email o ciudad...">
-                        <button class="btn btn-primary" type="button" id="filterButton">Filtrar</button>
-                    </div>
+    <div id="app">
+        <!-- ============ HEADER / NAVEGACIÓN ============ -->
+        <header class="header">
+            <div class="header-container">
+                <div class="logo" onclick="navigateTo('home')" style="cursor:pointer;">
+                    <span class="logo-icon">🎲</span>
+                    <span class="logo-text">RolCommunity</span>
                 </div>
-                <div class="col-md-6">
-                    <h2>Información</h2>
-                    <p>Esta aplicación consume datos de la API <a href="https://jsonplaceholder.typicode.com/"
-                            target="_blank">JSONPlaceholder.</a></p>
+                <nav class="nav" id="mainNav">
+                    <a href="javascript:void(0)" class="nav-link active" data-page="home" onclick="navigateTo('home')">Inicio</a>
+                    <a href="javascript:void(0)" class="nav-link" data-page="explore" onclick="navigateTo('explore')">Explorar</a>
+                    <a href="javascript:void(0)" class="nav-link" data-page="characters" onclick="navigateTo('characters')">Personajes</a>
+                    <a href="javascript:void(0)" class="nav-link" data-page="my-posts" id="myPostsLink" style="display:none;" onclick="navigateTo('my-posts')">Mis Publicaciones</a>
+                    <a href="javascript:void(0)" class="nav-link" data-page="profile" id="profileLink" style="display:none;" onclick="navigateTo('profile')">Perfil</a>
+                    <a href="javascript:void(0)" class="nav-link" data-page="moderator" id="moderatorLink" style="display:none;" onclick="navigateTo('moderator')">🛡️ Moderación</a>
+                </nav>
+                <div class="auth-buttons" id="authButtons">
+                    <button class="btn btn-outline" onclick="navigateTo('login')">Iniciar Sesión</button>
+                    <button class="btn btn-primary" onclick="navigateTo('register')">Registrarse</button>
+                </div>
+                <div class="user-info" id="userInfo" style="display:none;">
+                    <span class="user-name" id="userNameDisplay">Usuario</span>
+                    <button class="btn btn-outline btn-sm" onclick="logout()">Cerrar Sesión</button>
                 </div>
             </div>
-        </section>
+        </header>
 
-        <!-- Sección de resultados -->
-        <section>
-            <h2>Usuarios</h2>
-            <div id="loadingMessage" class="loading">
-                <div class="spinner-border text-primary" role="status">
-                    <span class="visually-hidden">Cargando...</span>
-                </div>
-                <p class="mt-2">Cargando datos...</p>
-            </div>
-            <div id="errorMessage" class="error-message" style="display: none;">
-                <h4>Error al cargar los datos</h4>
-                <p>No se pudieron cargar los datos de la API. Por favor, intente más tarde.</p>
-            </div>
-            <div id="usersContainer" class="row">
-                <!-- Los usuarios se cargarán aquí dinámicamente -->
-            </div>
-        </section>
-    </main>
+        <!-- ============ CONTENIDO PRINCIPAL ============ -->
+        <main class="main-content" id="mainContent">
+            <!-- Las páginas se cargan dinámicamente aquí -->
+        </main>
 
-    <!-- Pie de página -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-md-end">
-                    <p>Desarrollado con HTML, CSS, JavaScript y Bootstrap</p>
-                </div>
-            </div>
+        <!-- ============ FOOTER ============ -->
+        <footer class="footer">
+            <p>🎲 Portal de Comunidad para Juego de Rol de Mesa Digitalizado © 2026</p>
+            <p>Equipo AgileRol - Pablo Estay & Cristian Cañas</p>
+        </footer>
+    </div>
+
+    <!-- ============ MODALES ============ -->
+    <div class="modal-overlay" id="modalOverlay" style="display:none;" onclick="if(event.target===this) closeModal()">
+        <div class="modal" id="modalContent">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div id="modalBody"></div>
         </div>
-    </footer>
+    </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Script personalizado -->
-    <script src="Assets/js/script.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
